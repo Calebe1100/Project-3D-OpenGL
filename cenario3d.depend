@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1670793338 source:c:\temp\cenario3d\main.cpp
+1670881308 source:c:\temp\cenario3d\main.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>

@@ -160,11 +160,11 @@ void desenhaTerreno(){
     float y = 0.5;
     for(float i = -L; i <= L; i+= incr){
         glBegin(GL_LINES);
-        glVertex3f(i,y,-L);
-        glVertex3f(i,y,L);
+        glVertex3f(y,i,-L);
+        glVertex3f(y,i,L);
 
-        glVertex3f(-L,y,i);
-        glVertex3f(L,y,i);
+        glVertex3f(-L,i,y);
+        glVertex3f(L,i,y);
         glEnd();
     }
 
@@ -178,9 +178,9 @@ void Desenha(void)
 	DefineIluminacao();
 
 	// Troca cor corrente para azul
-	glColor3f(0.0f, 0.0f, 1.0f);
+	glColor3f(1.0f, 1.0f, 1.0f);
 
-	desenhaTerreno();
+	//desenhaTerreno();
 
     float rOrb1 = 8.0f, rOrb2 = 12.0f, rOrb3 = 16.0f, rOrb4 = 20.0f, rOrb5 = 24.0f, rOrb6 = 28.0f, rOrb7 = 32.0f, rOrb8 = 36.0f;
 
@@ -216,21 +216,21 @@ void Desenha(void)
     int posicao = 0;
     if(exibirSol){
         desenhaPlaneta(diametroSol, corSol, qntOrbitas, qntSatelites);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
     }
 
 // Mercurio
     glPushMatrix();
-    glRotatef(velTransMercurio, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb1, 0.0f, 0.0f);
-    glRotatef(velRotMercurio, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransMercurio, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb1, 0.0f, 0.0f);
+    glRotated(velRotMercurio, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanMercurio[] = {0.929f, 0.49f, 0.192f};
    // if(exibirMercurio){
         desenhaPlaneta(diametroMercurio, corPlanMercurio, 0, 0);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
    // }
 
@@ -238,15 +238,15 @@ void Desenha(void)
 
 // Vênus
     glPushMatrix();
-    glRotatef(velTransVenus, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb2, 0.0f, 0.0f);
-    glRotatef(velRotVenus, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransVenus, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb2, 0.0f, 0.0f);
+    glRotated(velRotVenus, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanVenus[] = {133.0/255.0f, 60.0/255.0f, 12.0/255.0f};
     if(exibirVenus){
         desenhaPlaneta(diametroVenus, corPlanVenus, 0, 0);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
     }
 
@@ -254,9 +254,9 @@ void Desenha(void)
 
 // Terra
     glPushMatrix();
-    glRotatef(velTransTerra, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb3, 0.0f, 0.0f);
-    glRotatef(velRotTerra, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransTerra, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb3, 0.0f, 0.0f);
+    glRotated(velRotTerra, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanTerra[] = {0.0f, 112.0/255.0f, 192.0/255.0f};
@@ -264,7 +264,7 @@ void Desenha(void)
         desenhaPlaneta(diametroTerra, corPlanTerra, 0, 1);
         glPushMatrix();
         glPopMatrix();
-    glutSwapBuffers();
+    //glutSwapBuffers();
 
     }
 
@@ -272,15 +272,15 @@ void Desenha(void)
 
 // Marte
     glPushMatrix();
-    glRotatef(velTransMarte, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb4, 0.0f, 0.0f);
-    glRotatef(velRotMarte, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransMarte, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb4, 0.0f, 0.0f);
+    glRotated(velRotMarte, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanMarte[] = {1.0f, 0.0f, 0.0f};
     if(exibirMarte){
          desenhaPlaneta(0.5, corPlanMarte, 0, 2);
-             glutSwapBuffers();
+            // glutSwapBuffers();
 
     }
 
@@ -288,15 +288,15 @@ void Desenha(void)
 
 // Júpter
     glPushMatrix();
-    glRotatef(velTransJupter, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb5, 0.0f, 0.0f);
-    glRotatef(velRotJupter, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransJupter, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb5, 0.0f, 0.0f);
+    glRotated(velRotJupter, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanJupter[] = {1.0f, 192.0/255.0f, 0.0f};
     if(exibirJupter){
         desenhaPlaneta(diametroJupiter, corPlanJupter, 1, 1);
-            glutSwapBuffers();
+           // glutSwapBuffers();
 
     }
 
@@ -304,15 +304,15 @@ void Desenha(void)
 
 // Saturno
     glPushMatrix();
-    glRotatef(velTransSaturno, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb6, 0.0f, 0.0f);
-    glRotatef(velRotSaturno, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransSaturno, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb6, 0.0f, 0.0f);
+    glRotated(velRotSaturno, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanSaturno[] = {191.0/255.0f, 144.0/255.0f, 0.0f};
     if(exibirSaturno){
         desenhaPlaneta(diametroSaturno, corPlanSaturno, 4, 1);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
     }
     glPopMatrix();
@@ -320,15 +320,15 @@ void Desenha(void)
 
 // Urano
     glPushMatrix();
-    glRotatef(velTransUrano, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb7, 0.0f, 0.0f);
-    glRotatef(velRotUrano, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransUrano, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb7, 0.0f, 0.0f);
+    glRotated(velRotUrano, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanUrano[] = {84.0/255.0f, 130.0/255.0f, 53.0/255.0f};
     if(exibirUrano){
         desenhaPlaneta(diametroUrano, corPlanUrano, 2, 1);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
     }
 
@@ -336,21 +336,21 @@ void Desenha(void)
 
 // Netuno
     glPushMatrix();
-    glRotatef(velTransNetuno, 0.0f, 0.0f, 1.0f);
-    glTranslatef(rOrb8, 0.0f, 0.0f);
-    glRotatef(velRotNetuno, 0.0f, 0.0f, 1.0f);
+    glRotated(velTransNetuno, 0.0f, 0.0f, 1.0f);
+    glTranslated(rOrb8, 0.0f, 0.0f);
+    glRotated(velRotNetuno, 0.0f, 0.0f, 1.0f);
 
 
     double corPlanNetuno[] = {180.0/255.0f, 199.0/255.0f, 231.0/255.0f};
     if(exibirNeturno){
         desenhaPlaneta(diametroNeturno, corPlanNetuno, 1, 2);
-            glutSwapBuffers();
+            //glutSwapBuffers();
 
     }
 
     glPopMatrix();
 
-
+    glutSwapBuffers();
 	// Execução dos comandos de desenho
 }
 
@@ -392,7 +392,7 @@ void Anima(int value)
 void Inicializa(void)
 {
 // Define a cor de fundo da janela de visualização como branca
-glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 // Habilita a definição da cor do material a partir da cor corrente
 glEnable(GL_COLOR_MATERIAL);
 //Habilita o uso de iluminação
@@ -439,7 +439,8 @@ void EspecificaParametrosVisualizacao(void)
 	glLoadIdentity();
 
 	// Especifica a projeção perspectiva(angulo,aspecto,zMin,zMax)
-	gluPerspective(angle,fAspect,0.5,500);
+	gluPerspective(angle,fAspect,0.5,800);
+
 
 	PosicionaObservador();
 }
