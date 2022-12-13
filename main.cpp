@@ -51,7 +51,7 @@ GLboolean executarAnima = true;
 GLboolean exibirInfoTerra = true;
 
 
-GLfloat angle, fAspect, rotX, rotY, a, o, z;
+GLfloat angle, fAspect, rotX, rotY, a, o, z,deslocamentoZ,deslocamentoX,deslocamentoY;
 GLdouble obsX, obsY, obsZ;
 
 void desenhaOrbita(double raio)
@@ -411,6 +411,7 @@ angle=50;
 rotX = 30;
 rotY = 0;
 obsZ = 200;
+obsY = 0;
 }
 
 
@@ -423,7 +424,7 @@ void PosicionaObservador(void)
 	glLoadIdentity();
 	DefineIluminacao();
 	// Especifica posição do observador e do alvo
-	glTranslatef(0,0,-obsZ);
+	glTranslatef(0,-obsY,-obsZ);
 	glRotatef(rotX,1,0,0);
 	glRotatef(rotY,0,1,0);
 }
@@ -434,15 +435,22 @@ void EspecificaParametrosVisualizacao(void)
 {
 	// Especifica sistema de coordenadas de projeção
 	glMatrixMode(GL_PROJECTION);
-
 	// Inicializa sistema de coordenadas de projeção
 	glLoadIdentity();
 
 	// Especifica a projeção perspectiva(angulo,aspecto,zMin,zMax)
-	gluPerspective(angle,fAspect,0.5,800);
+	gluPerspective(angle,fAspect,0.5,500);
 
+	// Especifica sistema de coordenadas do modelo
+	glMatrixMode(GL_MODELVIEW);
+	// Inicializa sistema de coordenadas do modelo
+	glLoadIdentity();
 
-	PosicionaObservador();
+	// Especifica posição do observador, do alvo e do vetor up
+	gluLookAt(0+deslocamentoX,0+deslocamentoY,150+deslocamentoZ,
+		0+deslocamentoX,0+deslocamentoY,0+deslocamentoZ,
+		0,1,0);
+
 }
 
 
@@ -487,6 +495,13 @@ void TeclasEspeciais (int tecla, int x, int y)
 {
 	switch (tecla)
 	{
+
+		case GLUT_KEY_F11:	// desloca o volume de visualização para frente
+								obsY--;
+								break;
+		case GLUT_KEY_F12:// desloca o volume de visualização para trás
+								obsY++;
+                            break;
 		case GLUT_KEY_LEFT:	rotY--;
 							break;
 		case GLUT_KEY_RIGHT:rotY++;
