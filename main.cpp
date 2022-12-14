@@ -87,7 +87,6 @@ void desenhaSatelite(double raio)
 
     glutSolidSphere(raio/4,10.0,10.0);
 
-	//glutSwapBuffers();
 
 }
 
@@ -120,8 +119,6 @@ void desenhaPlaneta(double raio, double color[], int qntOrbitas, int qntSatelite
         desenhaSatelite((raio + (0.6f)) * pow(-1,i));
         glPopMatrix();
     }
-    	//glutSwapBuffers();
-
 
 }
 
@@ -154,21 +151,6 @@ glLightfv(GL_LIGHT1, GL_SPECULAR, luzEspecular );
 glLightfv(GL_LIGHT1, GL_POSITION, posicaoLuz2 );
 }
 
-void desenhaTerreno(){
-    float L = 500.0;
-    float incr = 10;
-    float y = 0.5;
-    for(float i = -L; i <= L; i+= incr){
-        glBegin(GL_LINES);
-        glVertex3f(y,i,-L);
-        glVertex3f(y,i,L);
-
-        glVertex3f(-L,i,y);
-        glVertex3f(L,i,y);
-        glEnd();
-    }
-
-}
 
 // Função callback chamada para fazer o desenho
 void Desenha(void)
@@ -216,7 +198,6 @@ void Desenha(void)
     int posicao = 0;
     if(exibirSol){
         desenhaPlaneta(diametroSol, corSol, qntOrbitas, qntSatelites);
-            //glutSwapBuffers();
 
     }
 
@@ -230,7 +211,6 @@ void Desenha(void)
     double corPlanMercurio[] = {0.929f, 0.49f, 0.192f};
    // if(exibirMercurio){
         desenhaPlaneta(diametroMercurio, corPlanMercurio, 0, 0);
-            //glutSwapBuffers();
 
    // }
 
@@ -246,7 +226,6 @@ void Desenha(void)
     double corPlanVenus[] = {133.0/255.0f, 60.0/255.0f, 12.0/255.0f};
     if(exibirVenus){
         desenhaPlaneta(diametroVenus, corPlanVenus, 0, 0);
-            //glutSwapBuffers();
 
     }
 
@@ -264,7 +243,6 @@ void Desenha(void)
         desenhaPlaneta(diametroTerra, corPlanTerra, 0, 1);
         glPushMatrix();
         glPopMatrix();
-    //glutSwapBuffers();
 
     }
 
@@ -280,7 +258,6 @@ void Desenha(void)
     double corPlanMarte[] = {1.0f, 0.0f, 0.0f};
     if(exibirMarte){
          desenhaPlaneta(0.5, corPlanMarte, 0, 2);
-            // glutSwapBuffers();
 
     }
 
@@ -296,7 +273,6 @@ void Desenha(void)
     double corPlanJupter[] = {1.0f, 192.0/255.0f, 0.0f};
     if(exibirJupter){
         desenhaPlaneta(diametroJupiter, corPlanJupter, 1, 1);
-           // glutSwapBuffers();
 
     }
 
@@ -312,7 +288,6 @@ void Desenha(void)
     double corPlanSaturno[] = {191.0/255.0f, 144.0/255.0f, 0.0f};
     if(exibirSaturno){
         desenhaPlaneta(diametroSaturno, corPlanSaturno, 4, 1);
-            //glutSwapBuffers();
 
     }
     glPopMatrix();
@@ -328,7 +303,6 @@ void Desenha(void)
     double corPlanUrano[] = {84.0/255.0f, 130.0/255.0f, 53.0/255.0f};
     if(exibirUrano){
         desenhaPlaneta(diametroUrano, corPlanUrano, 2, 1);
-            //glutSwapBuffers();
 
     }
 
@@ -344,7 +318,6 @@ void Desenha(void)
     double corPlanNetuno[] = {180.0/255.0f, 199.0/255.0f, 231.0/255.0f};
     if(exibirNeturno){
         desenhaPlaneta(diametroNeturno, corPlanNetuno, 1, 2);
-            //glutSwapBuffers();
 
     }
 
