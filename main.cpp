@@ -85,7 +85,7 @@ void desenhaSatelite(double raio)
 
     incremento = (2 * M_PI) / 200;
 
-    glutSolidSphere(raio/2,10.0,10.0);
+    glutSolidSphere(raio/4,10.0,10.0);
 
 	//glutSwapBuffers();
 
@@ -449,7 +449,7 @@ void EspecificaParametrosVisualizacao(void)
 	// Especifica posição do observador, do alvo e do vetor up
 	gluLookAt(0+deslocamentoX,0+deslocamentoY,150+deslocamentoZ,
 		0+deslocamentoX,0+deslocamentoY,0+deslocamentoZ,
-		0,1,0);
+		1,1,0);
 
 }
 
